@@ -1,0 +1,57 @@
+.header{
+    color: white;
+}
+
+.container{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.aside{
+
+}
+
+form.searchBar input[type=text]{
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: white;
+    margin-bottom: 10px;
+}
+
+form.searchBar button{
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.searchBar button:hover{
+    background: #0b7dda;
+}
+
+form.searchBar::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.main{
+
+}
+
+.currForecast{
+    margin-bottom: 10px;
+}
+
+.futureForecast{
+
+}
+

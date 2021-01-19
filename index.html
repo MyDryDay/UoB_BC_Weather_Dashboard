@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1 class="navbar bg-dark justify-content-center header">Weather Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <aside class="col-md-4 col-sm-4 aside">
+                <div clas="row">
+                    <h4>Search for a city:</h4>
+                    <form class="searchBar">
+                        <input type="text" placeholder="Search..." name="search">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="border border-primary rounded" id="searchHistory">
+
+                    </div>
+                </div>
+            </aside>
+            <main class="col-md-8 col-sm-8 main">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 border border-primary rounded currForecast" id="currForecast">
+                        <h2 id="cityName">Current Forecast</h2>
+                        <p id="temperature">Temperature:</p>
+                        <p id="humidity">Humidity:</p>
+                        <p id="windSpeed">Wind Speed:</p>
+                        <p id="uvIndex">UV Index:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 futureForecast" id="futureForecast">
+                        <h3>5-Day Forecast</h3>
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2" id="future1">
+
+                            </div>
+                            <div class="col-md-2 col-sm-2" id="future2">
+
+                            </div>
+                            <div class="col-md-2 col-sm-2" id="future3">
+
+                            </div>
+                            <div class="col-md-2 col-sm-2" id="future4">
+
+                            </div>
+                            <div class="col-md-2 col-sm-2" id="future5">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+
+    <script src="WeatherDashboard.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>
