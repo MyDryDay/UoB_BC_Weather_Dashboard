@@ -21,19 +21,19 @@ var displayCurrent = function(serverResponse){
     $("#uvIndex").append("UV Index: " + uvIndex);
 }
 
-// var display5Day = function(serverResponse){
+var display5Day = function(serverResponse){
 
-//     for(var i = 0; i <= 4; i++){
-//         var dailyTemp = (serverResponse.daily[i].temp.day) - 273.15;
-//         console.log(dailyTemp);
-//         var dailyHumidity = serverResponse.daily[i].humidity;
-//         console.log(dailyHumidity);
+    for(var i = 0; i <= 4; i++){
+        var dailyTemp = (serverResponse.daily[i].temp.day) - 273.15;
+        console.log(dailyTemp);
+        var dailyHumidity = serverResponse.daily[i].humidity;
+        console.log(dailyHumidity);
 
-//         $("#temperature" + [i]).append("Temp: " + dailyTemp.toFixed(2) + "&deg;C");
-//         $("#humidity" + [i]).append("Humidity: " + dailyHumidity + "%");
-//     }
+        $("#temperature" + [i]).append("Temp: " + dailyTemp.toFixed(2) + "&deg;C");
+        $("#humidity" + [i]).append("Humidity: " + dailyHumidity + "%");
+    }
 
-// }
+}
 
 
 $("#searchBtn").on("click", function(event){
@@ -73,7 +73,7 @@ $("#searchBtn").on("click", function(event){
             console.log(serverResponse);
 
             displayCurrent(serverResponse);
-            // display5Day(serverResponse);
+            display5Day(serverResponse);
         });
     });
     
