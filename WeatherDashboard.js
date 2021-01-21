@@ -5,21 +5,21 @@ var displayCity = function(serverResponse){
     $("#cityName").append(cityName);
 } 
 
-// var displayCurrent = function(serverResponse){
-//     var temp = (serverResponse.current.temp) - 273.15;
-//     console.log(temp);
-//     var humidity = serverResponse.current.humidity;
-//     console.log(humidity);
-//     var windSpeed = serverResponse.current.wind_speed;
-//     console.log(windSpeed);
-//     var uvIndex = serverResponse.current.uvi;
-//     console.log(uvIndex);
+var displayCurrent = function(serverResponse){
+    var temp = (serverResponse.current.temp) - 273.15;
+    console.log(temp);
+    var humidity = serverResponse.current.humidity;
+    console.log(humidity);
+    var windSpeed = serverResponse.current.wind_speed;
+    console.log(windSpeed);
+    var uvIndex = serverResponse.current.uvi;
+    console.log(uvIndex);
 
-//     $("#temperature").append("Temperature: " + temp.toFixed(2) + "&deg;C");
-//     $("#humidity").append("Relative Humidity: " + humidity + "%");
-//     $("#windSpeed").append("Wind Speed: " + windSpeed + "kmph");
-//     $("#uvIndex").append("UV Index: " + uvIndex);
-// }
+    $("#temperature").append("Temperature: " + temp.toFixed(2) + "&deg;C");
+    $("#humidity").append("Relative Humidity: " + humidity + "%");
+    $("#windSpeed").append("Wind Speed: " + windSpeed + "kmph");
+    $("#uvIndex").append("UV Index: " + uvIndex);
+}
 
 // var display5Day = function(serverResponse){
 
@@ -72,7 +72,7 @@ $("#searchBtn").on("click", function(event){
         }).then(function(serverResponse){
             console.log(serverResponse);
 
-            // displayCurrent(serverResponse);
+            displayCurrent(serverResponse);
             // display5Day(serverResponse);
         });
     });
