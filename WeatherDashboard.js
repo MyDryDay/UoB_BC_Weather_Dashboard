@@ -1,8 +1,9 @@
 var displayCity = function(serverResponse){
     var cityName = serverResponse[0].local_names.ascii;
+    var currentDate = luxon.DateTime.local();
     console.log(cityName);
 
-    $("#cityName").text(cityName);
+    $("#cityName").text(cityName + " - " + currentDate.toLocaleString());
 } 
 
 var displayCurrent = function(serverResponse){
@@ -65,7 +66,7 @@ $("#searchBtn").on("click", function(event){
         displayCity(serverResponse);
 
         // A second queryURL is built here using the variables for lat & lon
-        var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=metric&appid=c7fb2f80502825ecbe90a5fece0767e4";
+        var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=metric&exclude=minutely,hourly,alerts&appid=c7fb2f80502825ecbe90a5fece0767e4";
         
         // A second AJAX is initialised to get the relevant weather information
         $.ajax({
