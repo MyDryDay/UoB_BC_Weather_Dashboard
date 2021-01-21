@@ -1,9 +1,9 @@
-// var displayCity = function(serverResponse){
-//     var cityName = serverResponse[0].local_names.af;
-//     console.log(cityName);
+var displayCity = function(serverResponse){
+    var cityName = serverResponse[0].local_names.af;
+    console.log(cityName);
 
-//     $("#cityName").append(cityName);
-// } 
+    $("#cityName").append(cityName);
+} 
 
 // var displayCurrent = function(serverResponse){
 //     var temp = (serverResponse.current.temp) - 273.15;
@@ -60,7 +60,7 @@ $("#searchBtn").on("click", function(event){
         var lon = serverResponse[0].lon;
         console.log(lon);
 
-        // displayCity(serverResponse);
+        displayCity(serverResponse);
 
         // A second queryURL is built here using the variables for lat & lon
         var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=c7fb2f80502825ecbe90a5fece0767e4";
