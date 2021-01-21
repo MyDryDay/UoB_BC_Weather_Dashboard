@@ -20,8 +20,8 @@
                 <div clas="row">
                     <h4>Search for a city:</h4>
                     <form class="searchBar">
-                        <input type="text" placeholder="Search..." name="search">
-                        <button type="submit"><i class="fas fa-search"></i></button>
+                        <input type="text" placeholder="eg: birmingham, gb" name="search" id="searchQuery">
+                        <button type="submit" id="searchBtn"><i class="fas fa-search"></i></button>
                     </form>
                     <div class="border border-primary rounded" id="searchHistory">
 
@@ -31,31 +31,36 @@
             <main class="col-md-8 col-sm-8 main">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 border border-primary rounded currForecast" id="currForecast">
-                        <h2 id="cityName">Current Forecast</h2>
-                        <p id="temperature">Temperature:</p>
-                        <p id="humidity">Humidity:</p>
-                        <p id="windSpeed">Wind Speed:</p>
-                        <p id="uvIndex">UV Index:</p>
+                        <h2 id="cityName"></h2>
+                        <p id="temperature"></p>
+                        <p id="humidity"></p>
+                        <p id="windSpeed"></p>
+                        <p id="uvIndex"></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 futureForecast" id="futureForecast">
                         <h3>5-Day Forecast</h3>
                         <div class="row">
+                            <div class="col-md-2 col-sm-2" id="future0">
+                                <p id="temperature0"></p>
+                                <p id="humidity0"></p>
+                            </div>
                             <div class="col-md-2 col-sm-2" id="future1">
-
+                                <p id="temperature1"></p>
+                                <p id="humidity1"></p>
                             </div>
                             <div class="col-md-2 col-sm-2" id="future2">
-
+                                <p id="temperature2"></p>
+                                <p id="humidity2"></p>
                             </div>
                             <div class="col-md-2 col-sm-2" id="future3">
-
+                                <p id="temperature3"></p>
+                                <p id="humidity3"></p>
                             </div>
                             <div class="col-md-2 col-sm-2" id="future4">
-
-                            </div>
-                            <div class="col-md-2 col-sm-2" id="future5">
-
+                                <p id="temperature4"></p>
+                                <p id="humidity4"></p>
                             </div>
                         </div>
                     </div>
@@ -65,8 +70,8 @@
     </div>
     
 
-    <script src="WeatherDashboard.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="WeatherDashboard.js"></script>
 </body>
 </html>
