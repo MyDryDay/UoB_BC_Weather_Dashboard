@@ -1,9 +1,8 @@
 var displayCity = function(serverResponse){
     var cityName = serverResponse[0].local_names.ascii;
-    var currentDate = luxon.DateTime.local();
     console.log(cityName);
 
-    $("#cityName").text(cityName + " - " + currentDate.toLocaleString());
+    $("#cityName").text(cityName);
 } 
 
 var displayCurrent = function(serverResponse){
@@ -15,22 +14,33 @@ var displayCurrent = function(serverResponse){
     console.log(windSpeed);
     var uvIndex = serverResponse.current.uvi;
     console.log(uvIndex);
-
     $("#temperature").text("Temperature: " + temp.toFixed(2));
     $("#temperature").append("&deg;C");
     $("#humidity").text("Relative Humidity: " + humidity + "%");
     $("#windSpeed").text("Wind Speed: " + windSpeed.toFixed(2) + "kmph");
     $("#uvIndex").text("UV Index: " + uvIndex);
+
+    var unixTime = serverResponse.current.dt;
+    var convToMillisecs = unixTime * 1000;
+    var dateObject = new Date(convToMillisecs);
+    var humanDate = dateObject.toLocaleString("en-GB", {day: "numeric", month: "numeric", year: "numeric"});
+    $("#cityName").append(" " + humanDate);
 }
 
 var display5Day = function(serverResponse){
 
-    for(var i = 0; i <= 4; i++){
+    for(var i = 1; i <= 5; i++){
         var dailyTemp = serverResponse.daily[i].temp.day;
         console.log(dailyTemp);
         var dailyHumidity = serverResponse.daily[i].humidity;
         console.log(dailyHumidity);
+        var unixTime = serverResponse.daily[i].dt;
+        var convToMillisecs = unixTime * 1000;
+        var dateObject = new Date(convToMillisecs);
+        var humanDate = dateObject.toLocaleString("en-GB", {day: "numeric", month: "numeric", year: "numeric"});
+        console.log(humanDate);
 
+        $("#date" + [i]).text(humanDate);
         $("#temperature" + [i]).text("Temp: " + dailyTemp.toFixed(2));
         $("#temperature" + [i]).append("&deg;C");
         $("#humidity" + [i]).text("Humidity: " + dailyHumidity + "%");
