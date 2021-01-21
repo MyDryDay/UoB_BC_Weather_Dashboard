@@ -1,36 +1,38 @@
 var displayCity = function(serverResponse){
-    var cityName = serverResponse[0].local_names.af;
+    var cityName = serverResponse[0].local_names.ascii;
     console.log(cityName);
 
-    $("#cityName").append(cityName);
+    $("#cityName").text(cityName);
 } 
 
 var displayCurrent = function(serverResponse){
-    var temp = (serverResponse.current.temp) - 273.15;
+    var temp = serverResponse.current.temp;
     console.log(temp);
     var humidity = serverResponse.current.humidity;
     console.log(humidity);
-    var windSpeed = serverResponse.current.wind_speed;
+    var windSpeed = (serverResponse.current.wind_speed) * 3.6;
     console.log(windSpeed);
     var uvIndex = serverResponse.current.uvi;
     console.log(uvIndex);
 
-    $("#temperature").append("Temperature: " + temp.toFixed(2) + "&deg;C");
-    $("#humidity").append("Relative Humidity: " + humidity + "%");
-    $("#windSpeed").append("Wind Speed: " + windSpeed + "kmph");
-    $("#uvIndex").append("UV Index: " + uvIndex);
+    $("#temperature").text("Temperature: " + temp.toFixed(2));
+    $("#temperature").append("&deg;C");
+    $("#humidity").text("Relative Humidity: " + humidity + "%");
+    $("#windSpeed").text("Wind Speed: " + windSpeed.toFixed(2) + "kmph");
+    $("#uvIndex").text("UV Index: " + uvIndex);
 }
 
 var display5Day = function(serverResponse){
 
     for(var i = 0; i <= 4; i++){
-        var dailyTemp = (serverResponse.daily[i].temp.day) - 273.15;
+        var dailyTemp = serverResponse.daily[i].temp.day;
         console.log(dailyTemp);
         var dailyHumidity = serverResponse.daily[i].humidity;
         console.log(dailyHumidity);
 
-        $("#temperature" + [i]).append("Temp: " + dailyTemp.toFixed(2) + "&deg;C");
-        $("#humidity" + [i]).append("Humidity: " + dailyHumidity + "%");
+        $("#temperature" + [i]).text("Temp: " + dailyTemp.toFixed(2));
+        $("#temperature" + [i]).append("&deg;C");
+        $("#humidity" + [i]).text("Humidity: " + dailyHumidity + "%");
     }
 
 }
@@ -63,7 +65,7 @@ $("#searchBtn").on("click", function(event){
         displayCity(serverResponse);
 
         // A second queryURL is built here using the variables for lat & lon
-        var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=c7fb2f80502825ecbe90a5fece0767e4";
+        var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=metric&appid=c7fb2f80502825ecbe90a5fece0767e4";
         
         // A second AJAX is initialised to get the relevant weather information
         $.ajax({
