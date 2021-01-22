@@ -23,7 +23,7 @@
                         <input type="text" placeholder="eg: birmingham, gb" name="search" id="searchQuery">
                         <button type="submit" id="searchBtn"><i class="fas fa-search"></i></button>
                     </form>
-                    <div class="border border-primary rounded" id="searchHistory">
+                    <div class="border border-primary rounded searchHistory" id="searchHistory">
 
                     </div>
                 </div>
@@ -31,7 +31,11 @@
             <main class="col-md-8 col-sm-8 main">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 border border-primary rounded currForecast" id="currForecast">
-                        <h2 id="cityName"></h2>
+                        <header id="currHeader">
+                            <h2 id="cityName"></h2>
+                            <img id="weatherIcon">
+                        </header>
+                        
                         <p id="temperature"></p>
                         <p id="humidity"></p>
                         <p id="windSpeed"></p>
@@ -44,26 +48,31 @@
                         <div class="row">
                             <div class="col-md-2 col-sm-2" id="future0">
                                 <p id="date1"></p>
+                                <img id="dailyWeatherIcon1">
                                 <p id="temperature1"></p>
                                 <p id="humidity1"></p>
                             </div>
                             <div class="col-md-2 col-sm-2" id="future1">
                                 <p id="date2"></p>
+                                <img id="dailyWeatherIcon2">
                                 <p id="temperature2"></p>
                                 <p id="humidity2"></p>
                             </div>
                             <div class="col-md-2 col-sm-2" id="future2">
                                 <p id="date3"></p>
+                                <img id="dailyWeatherIcon3">
                                 <p id="temperature3"></p>
                                 <p id="humidity3"></p>
                             </div>
                             <div class="col-md-2 col-sm-2" id="future3">
                                 <p id="date4"></p>
+                                <img id="dailyWeatherIcon4">
                                 <p id="temperature4"></p>
                                 <p id="humidity4"></p>
                             </div>
                             <div class="col-md-2 col-sm-2" id="future4">
                                 <p id="date5"></p>
+                                <img id="dailyWeatherIcon5">
                                 <p id="temperature5"></p>
                                 <p id="humidity5"></p>
                             </div>
