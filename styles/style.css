@@ -11,6 +11,10 @@
 
 }
 
+.searchHistory{
+    display: none;
+}
+
 form.searchBar input[type=text]{
     padding: 10px;
     font-size: 17px;
