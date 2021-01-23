@@ -43,10 +43,6 @@ form.searchBar::after{
     display: table;
 }
 
-.searchHistory{
-    height: 100%;
-}
-
 .searchHistory button{
     width: 100%;
     height: 50px;
@@ -64,5 +60,16 @@ form.searchBar::after{
 
 .futureForecast{
     display: none;
+}
+
+.futureForecastCards{
+    text-align: center;
+}
+
+.future{
+    color: white;
+    background-color: blue;
+    margin-right: 10px;
+    text-align: center;
 }
 
