@@ -23,8 +23,9 @@
                         <input type="text" placeholder="eg: birmingham, gb" name="search" id="searchQuery">
                         <button type="submit" id="searchBtn"><i class="fas fa-search"></i></button>
                     </form>
-                    <div class="border border-primary rounded searchHistory">
-                        <ul id="searchHistory"></ul>
+                    <div class="searchHistory">
+                        <ul class="list-group searchHistoryList" id="searchHistory"></ul>
+                        <button type="submit" class="rounded" id="clearHistory">Clear History<i class="fas fa-trash"></i></button>
 
                     </div>
                 </div>
@@ -34,7 +35,6 @@
                     <div class="col-md-12 col-sm-12 border border-primary rounded currForecast" id="currForecast">
                         <header id="currHeader">
                             <h2 id="cityName"></h2>
-                            <img id="weatherIcon">
                         </header>
                         
                         <p id="temperature"></p>

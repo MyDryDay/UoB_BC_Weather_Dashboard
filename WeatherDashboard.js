@@ -27,7 +27,7 @@ $(document).ready(function(){
         var dateObject = new Date(convToMillisecs);
         var humanDate = dateObject.toLocaleString("en-GB", {day: "numeric", month: "numeric", year: "numeric"});
         $("#cityName").append(" - " + humanDate);
-        $("#weatherIcon").attr("src", currIconURL);
+        $("#cityName").append("<img src='" + currIconURL + "'>");
 
         // An if/else statement is declared here to determine the background colour of the UV Index element
         // The colour coresponds to how intense the UV Index on that particular day in that particular city
@@ -89,7 +89,7 @@ $(document).ready(function(){
         $("#searchHistory").empty();
         // searchHistory is looped through, prepending each item to a button in the #searchHistory element
         for(var i = 0; i < searchHistory.length; i++){
-            $("#searchHistory").prepend("<li class='searchHistory' id='item" + [i] + "'></li>");
+            $("#searchHistory").prepend("<li class='searchItem list-group-item list-group-flush' id='item" + [i] + "'></li>");
             $("#item" + [i]).text(searchHistory[i]);
         }
     }
@@ -166,6 +166,12 @@ $(document).ready(function(){
     // This on-click event causes the function searchFromHistory to be called any time the document is clicked
     // But because of the if statement in the searchFromHistory function, the function will only be called if the element in the document clicked is a <li> element
     $(document).on("click", searchFromHistory);
+
+    $("#clearHistory").on("click", function(){
+        localStorage.clear();
+        $("#searchHistory").empty();
+        $("#searchHistory").css("display", "none");
+    })
     
 })
 
