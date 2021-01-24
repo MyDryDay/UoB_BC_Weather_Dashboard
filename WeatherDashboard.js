@@ -20,7 +20,7 @@ $(document).ready(function(){
         $("#uvIndexBtn").text(uvIndex);
 
         var currIcon = serverResponse.current.weather[0].icon;
-        var currIconURL = "http://openweathermap.org/img/wn/" + currIcon + ".png"
+        var currIconURL = "https://openweathermap.org/img/wn/" + currIcon + ".png"
         // Here, the unix time returned from the object is converted into a readable, human format
         var unixTime = serverResponse.current.dt;
         var convToMillisecs = unixTime * 1000;
@@ -54,7 +54,7 @@ $(document).ready(function(){
             var dateObject = new Date(convToMillisecs);
             var humanDate = dateObject.toLocaleString("en-GB", {day: "numeric", month: "numeric", year: "numeric"});
             var dailyIcon = serverResponse.daily[i].weather[0].icon;
-            var dailyIconURL = "http://openweathermap.org/img/wn/" + dailyIcon + ".png"
+            var dailyIconURL = "https://openweathermap.org/img/wn/" + dailyIcon + ".png"
 
             $("#date" + [i]).text(humanDate);
             $("#temperature" + [i]).text("Temp: " + dailyTemp.toFixed(2));
@@ -108,7 +108,7 @@ $(document).ready(function(){
     var ajaxCall = function(q){
         // These variables takes the user's input from the search bar and add them to the queryURL 
         // var q = $("#searchQuery").val();
-        var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + q + "&appid=" + APIKey;
+        var queryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + q + "&appid=" + APIKey;
 
         // The first AJAX call is initialised here to get the latitude and longitude variables we need in order to make the second AJAX call
         $.ajax({
