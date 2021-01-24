@@ -89,16 +89,26 @@ $(document).ready(function(){
         $("#searchHistory").empty();
         // searchHistory is looped through, prepending each item to a button in the #searchHistory element
         for(var i = 0; i < searchHistory.length; i++){
-            $("#searchHistory").prepend("<button class='searchHistory' id='item" + [i] + "'>");
+            $("#searchHistory").prepend("<li class='searchHistory' id='item" + [i] + "'></li>");
             $("#item" + [i]).text(searchHistory[i]);
+        }
+    }
+    // Here the API Key is defined
+    var APIKey = "c7fb2f80502825ecbe90a5fece0767e4"; 
 
+    // This function checks to see if the searchQuery field is empty, if it's not it will assign the value of "#searchQuery" to q
+    // It then calls the ajaxCall function passign q as a parameter
+    function findCity(){
+        if ($("#searchQuery").val() !== ""){
+            var q = $("#searchQuery").val();
+            ajaxCall(q);
         }
     }
 
-    var ajaxCall = function(queryURL){
+    var ajaxCall = function(q){
         // These variables takes the user's input from the search bar and add them to the queryURL 
-        var q = $("#searchQuery").val();
-        var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + q + "&appid=c7fb2f80502825ecbe90a5fece0767e4";
+        // var q = $("#searchQuery").val();
+        var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + q + "&appid=" + APIKey;
 
         // The first AJAX call is initialised here to get the latitude and longitude variables we need in order to make the second AJAX call
         $.ajax({
@@ -128,23 +138,41 @@ $(document).ready(function(){
         });
     }
 
+    // This function sets a variable for where the user has clicked, it then checks to see if the element clicked matches a <li> element
+    // if it does, it sets the text from the target equal to variable q, and calls the ajaxCall function passing q as a parameter
+    var searchFromHistory = function(event){
+        var liElement = event.target;
+        if(event.target.matches("li")){
+            q = liElement.textContent;
+            ajaxCall(q);
+        }
+    }
+
     $("#searchBtn").on("click", function(event){
         event.preventDefault();
 
         writeSearch();
 
-        ajaxCall();
+        // ajaxCall();
+
+        findCity();
 
         // Here, the DOM elements selected are being displayed
         $("#currForecast").css("display", "block");
         $("#futureForecast").css("display", "block");
-        $("#searchHistory").css("display", "block");
+        $(".searchHistory").css("display", "block");
     })
+
+    // This on-click event causes the function searchFromHistory to be called any time the document is clicked
+    // But because of the if statement in the searchFromHistory function, the function will only be called if the element in the document clicked is a <li> element
+    $(document).on("click", searchFromHistory);
+    
 })
+
 
 
 // TO DO:
 // GENERATE WEATHER ICONS FOR CURRENT FORECAST & 5-DAY FORECAST                                                                            - DONE
 // CREATE SOME KIND OF IF/ELSE STATEMENT FOR THE UV INDEX. THIS SHOULD COLOUR THE VALUE DEPENDING ON THE SEVERITY OF THE UV INDEX          - DONE
 // SAVE EACH WEATHER SEARCH TO LOCAL STORAGE, APPEND THE VALUES TO BUTTONS IN #searchHistory ELEMENT                                       - DONE
-// HAVE EACH BUTTON IN #searchHistory SEARCH FOR THAT BUTTON'S VALUE                                                                       - 
+// HAVE EACH BUTTON IN #searchHistory SEARCH FOR THAT BUTTON'S VALUE                                                                       - DONE   
