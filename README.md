@@ -14,11 +14,11 @@ I would like to make the whole thing a bit more responsive to smaller screen siz
 I would also like to address an issue i found but couldn't figure out; the criteria for the project described only searching a city, not a city and a country code - which is what i've done here. So if i were to come back to this piece of work i'd like to figure out how to utilise just the city name to get the correct results based on the user's location. 
 
 # Screenshots & Link to site
-![Screenshot #1](/assets/images/1.png)
-![Screenshot #2](/assets/images/2.png)
-![Screenshot #3](/assets/images/3.png)
-![Screenshot #4](/assets/images/4.png)
-![Screenshot #5](/assets/images/5.png)
+![Screenshot #1](images/1.png)
+![Screenshot #2](images/2.png)
+![Screenshot #3](images/3.png)
+![Screenshot #4](images/4.png)
+![Screenshot #5](images/5.png)
 
 
 https://mydryday.github.io/UoB_BC_Weather_Dashboard/
